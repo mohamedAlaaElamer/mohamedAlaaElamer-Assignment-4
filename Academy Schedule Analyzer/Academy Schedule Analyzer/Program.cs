@@ -1,10 +1,29 @@
-﻿using System.Globalization;
-
+﻿
 namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void searchforaSession(string[] names, DateTime[] dates, int[] durations)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Enter the name of the session to search for:");
+            string searchName = Console.ReadLine();
 
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (string.Equals(names[i], searchName, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("-------------------------");
+                    Console.WriteLine($"Session Name: {names[i]}");
+                    Console.WriteLine($"Date: {dates[i].ToString("dd MMMM yyyy")}");
+                    Console.WriteLine($"Start Time: {dates[i].ToString("HH:mm tt")}");
+                    Console.WriteLine($"Duration: {durations[i]} minutes");
+                    Console.WriteLine("-------------------------");
+                    return;
+                }
+            }
+            Console.WriteLine("Session not found.");
+        }
         static void displayAllSessions(string[] names, DateTime[] dates, int[] durations)
         {
             for(int i =0; i < names.Length; i++)
@@ -47,6 +66,8 @@ namespace Academy_Schedule_Analyzer
                 };
 
             displayAllSessions(sessionNames, sessionDates, sessionDurations);
+
+            searchforaSession(sessionNames, sessionDates, sessionDurations);
         }
     }
 }

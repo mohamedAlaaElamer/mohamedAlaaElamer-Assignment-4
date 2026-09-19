@@ -1,9 +1,16 @@
-﻿
-
-namespace Academy_Schedule_Analyzer
+﻿namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static string FindASession(string[] names)
+        {
+            Console.Write("Enter session name: ");
+            string sessionName = Console.ReadLine();
+
+            string found =  Array.Find(names, name => name.Equals(sessionName, StringComparison.OrdinalIgnoreCase));
+
+            return found != null ? $"Session is found :{found}" : "Session not found.";
+        }
         static void CheckIfaSessionExists(string[] names)
         {
             Console.Write("Enter session name: ");
@@ -121,7 +128,11 @@ namespace Academy_Schedule_Analyzer
 
             //  FindSessionIndex(sessionNames);
 
-            CheckIfaSessionExists(sessionNames); 
+            // CheckIfaSessionExists(sessionNames); 
+
+            Console.WriteLine(FindASession(sessionNames));
+             
+
         }
     }
 }

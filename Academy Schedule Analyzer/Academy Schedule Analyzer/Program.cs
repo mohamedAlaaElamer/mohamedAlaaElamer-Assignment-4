@@ -1,10 +1,26 @@
 ﻿
-using static System.Collections.Specialized.BitVector32;
 
 namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void FindSessionIndex(string[] names)
+        {
+            Console.Write("Enter session name: ");
+            string sessionName = Console.ReadLine();
+
+            int index = Array.IndexOf(names,sessionName);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Session not found.");
+            }
+            else
+            {
+                Console.WriteLine($"index: {index}");
+            }
+        }
+
         static void ReverseSessionNames(string[] names)
         {
             string[] copyNames = new string[names.Length];
@@ -94,7 +110,9 @@ namespace Academy_Schedule_Analyzer
 
             //  SortSessionNames(sessionNames);
 
-            ReverseSessionNames(sessionNames);
+            // ReverseSessionNames(sessionNames);
+
+            FindSessionIndex(sessionNames);
         }
     }
 }

@@ -1,8 +1,21 @@
 ﻿
+using static System.Collections.Specialized.BitVector32;
+
 namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void sortSessionNames(string[] names)
+        {
+            string[] copyNames = new string[names.Length];
+            Array.Copy(names, copyNames, names.Length);
+            Array.Sort(copyNames);
+
+            foreach (string name in copyNames)
+            {
+                Console.WriteLine(name);
+            }
+        }
         static void searchforaSession(string[] names, DateTime[] dates, int[] durations)
         {
             Console.WriteLine();
@@ -65,9 +78,11 @@ namespace Academy_Schedule_Analyzer
                 180
                 };
 
-            displayAllSessions(sessionNames, sessionDates, sessionDurations);
+          //  displayAllSessions(sessionNames, sessionDates, sessionDurations);
 
-            searchforaSession(sessionNames, sessionDates, sessionDurations);
+         //   searchforaSession(sessionNames, sessionDates, sessionDurations);
+
+            sortSessionNames(sessionNames);
         }
     }
 }

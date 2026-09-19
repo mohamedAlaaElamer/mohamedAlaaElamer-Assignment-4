@@ -5,7 +5,17 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
-        static void sortSessionNames(string[] names)
+        static void ReverseSessionNames(string[] names)
+        {
+            string[] copyNames = new string[names.Length];
+            Array.Copy(names, copyNames, names.Length);
+            Array.Reverse(copyNames);
+            foreach (string name in copyNames)
+            {
+                Console.WriteLine(name);
+            }
+        }
+        static void SortSessionNames(string[] names)
         {
             string[] copyNames = new string[names.Length];
             Array.Copy(names, copyNames, names.Length);
@@ -16,7 +26,7 @@ namespace Academy_Schedule_Analyzer
                 Console.WriteLine(name);
             }
         }
-        static void searchforaSession(string[] names, DateTime[] dates, int[] durations)
+        static void SearchforaSession(string[] names, DateTime[] dates, int[] durations)
         {
             Console.WriteLine();
             Console.WriteLine("Enter the name of the session to search for:");
@@ -37,7 +47,7 @@ namespace Academy_Schedule_Analyzer
             }
             Console.WriteLine("Session not found.");
         }
-        static void displayAllSessions(string[] names, DateTime[] dates, int[] durations)
+        static void DisplayAllSessions(string[] names, DateTime[] dates, int[] durations)
         {
             for(int i =0; i < names.Length; i++)
             {
@@ -78,11 +88,13 @@ namespace Academy_Schedule_Analyzer
                 180
                 };
 
-          //  displayAllSessions(sessionNames, sessionDates, sessionDurations);
+            //   DisplayAllSessions(sessionNames, sessionDates, sessionDurations);
 
-         //   searchforaSession(sessionNames, sessionDates, sessionDurations);
+            //  SearchforaSession(sessionNames, sessionDates, sessionDurations);
 
-            sortSessionNames(sessionNames);
+            //  SortSessionNames(sessionNames);
+
+            ReverseSessionNames(sessionNames);
         }
     }
 }

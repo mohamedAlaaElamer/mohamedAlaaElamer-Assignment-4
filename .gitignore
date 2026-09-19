@@ -12,3 +12,4 @@ packages/
 appsettings.Development.json
 # Uncomment the line below if you want to completely block local user secrets files:
 # secrets.json
+*.slnx

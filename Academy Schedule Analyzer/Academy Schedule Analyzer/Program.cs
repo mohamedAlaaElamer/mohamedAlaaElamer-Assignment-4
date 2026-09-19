@@ -4,6 +4,14 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void CheckIfaSessionExists(string[] names)
+        {
+            Console.Write("Enter session name: ");
+            string sessionName = Console.ReadLine();
+
+            bool exists = Array.Exists(names, name => name.Equals(sessionName, StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine(exists ? "Session exists." : "Session does not exist.");
+        }
         static void FindSessionIndex(string[] names)
         {
             Console.Write("Enter session name: ");
@@ -20,7 +28,6 @@ namespace Academy_Schedule_Analyzer
                 Console.WriteLine($"index: {index}");
             }
         }
-
         static void ReverseSessionNames(string[] names)
         {
             string[] copyNames = new string[names.Length];
@@ -112,7 +119,9 @@ namespace Academy_Schedule_Analyzer
 
             // ReverseSessionNames(sessionNames);
 
-            FindSessionIndex(sessionNames);
+            //  FindSessionIndex(sessionNames);
+
+            CheckIfaSessionExists(sessionNames); 
         }
     }
 }

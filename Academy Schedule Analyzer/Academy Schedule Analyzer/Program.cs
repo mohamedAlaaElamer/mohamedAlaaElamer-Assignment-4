@@ -2,6 +2,13 @@
 {
     internal class Program
     {
+        static string FindIndex(string[] names)
+        {
+            Console.Write("Enter session name: ");
+            string sessionName = Console.ReadLine();
+            int index = Array.FindIndex(names, name => name.Equals(sessionName, StringComparison.OrdinalIgnoreCase));
+            return index != -1 ? $"Session is found at index :{index}" : "Session not found.";
+        }
         static string FindASession(string[] names)
         {
             Console.Write("Enter session name: ");
@@ -130,9 +137,9 @@
 
             // CheckIfaSessionExists(sessionNames); 
 
-            Console.WriteLine(FindASession(sessionNames));
-             
+            // Console.WriteLine(FindASession(sessionNames));
 
+            Console.WriteLine(FindIndex(sessionNames));
         }
     }
 }

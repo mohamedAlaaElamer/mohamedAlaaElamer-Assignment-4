@@ -2,6 +2,10 @@
 {
     internal class Program
     {
+        static void ReferenceTypeWithiutRef(int[] sessionDurations)
+        {
+            sessionDurations[0] = 100;
+        }
         static void SearchForIndexAndDuration(string[] sessionNames, int[] sessionDurations , out int index, out int duration)
         {
             Console.Write("Enter the session name:");
@@ -236,14 +240,28 @@
             //  SortSessionDurations(sessionDurations);
 
             //Part 7
-            int x = 5;
-            Console.WriteLine($"Before calling the function: {x}");
+            //int x = 5;
+            //Console.WriteLine($"Before calling the function: {x}");
 
-            ChangeRefValue(ref x);
+            //ChangeRefValue(ref x);
 
-            Console.WriteLine($"After calling the function: {x}");
+            //Console.WriteLine($"After calling the function: {x}");
 
-            SearchForIndexAndDuration(sessionNames, sessionDurations , out int index , out int duration);
+            //SearchForIndexAndDuration(sessionNames, sessionDurations , out int index , out int duration);
+
+            Console.WriteLine("Array before modification:");
+            foreach (int duration in sessionDurations)
+            {
+                Console.WriteLine(duration);
+            }
+            ReferenceTypeWithiutRef(sessionDurations);
+
+            Console.WriteLine("Array after modification:");
+            foreach (int duration in sessionDurations)
+            {
+                Console.WriteLine(duration);
+            }
+
         }
     }
 }

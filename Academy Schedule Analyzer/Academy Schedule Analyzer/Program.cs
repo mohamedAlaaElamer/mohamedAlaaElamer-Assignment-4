@@ -2,6 +2,43 @@
 {
     internal class Program
     {
+        static int GetLongestDuration(int[] sessionDurations)
+        {
+            int longestDuration = sessionDurations[0];
+
+            for (int i = 0; i < sessionDurations.Length; i++)
+            {
+                if (sessionDurations[i] > longestDuration)
+                    longestDuration = sessionDurations[i];
+            }
+            return longestDuration;
+        }
+        static double GetShortestDuration(int[] sessionDurations)
+        {
+            double shortestDuration = sessionDurations[0];
+
+            for (int i = 0; i < sessionDurations.Length; i++)
+            {
+                if (sessionDurations[i] < shortestDuration)
+                    shortestDuration = sessionDurations[i];
+            }
+            return shortestDuration;
+        }
+        static double GetAverageDuration(int[] sessionDurations , int totalDuration)
+        {
+            double averageDuration = (double)totalDuration / sessionDurations.Length;
+
+            return averageDuration;
+        }
+        static int GetTotalDuration(int[] durations)
+        {
+            int totalDuration = 0;
+            foreach (int duration in durations)
+            {
+                totalDuration += duration;
+            }
+            return totalDuration;
+        }
         static void CopyAnArray(string[] names)
         {
             string[] copyNames = new string[names.Length];
@@ -162,7 +199,14 @@
 
             // Console.WriteLine(FindIndex(sessionNames));
 
-            CopyAnArray(sessionNames);
+            // CopyAnArray(sessionNames);
+
+            //Console.WriteLine($"Total Duration: {GetTotalDuration(sessionDurations)} minutes");
+            //Console.WriteLine($"Average Duration: {GetAverageDuration(sessionDurations , GetTotalDuration(sessionDurations))} minutes");
+            //Console.WriteLine($"Shortest Duration: {GetShortestDuration(sessionDurations)} minutes");
+            //Console.WriteLine($"Longest Duration: {GetLongestDuration(sessionDurations)} minutes");
+
+
         }
     }
 }

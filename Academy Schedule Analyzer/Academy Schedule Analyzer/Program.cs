@@ -2,6 +2,27 @@
 {
     internal class Program
     {
+        static void CopyAnArray(string[] names)
+        {
+            string[] copyNames = new string[names.Length];
+            Array.Copy(names, copyNames, names.Length);
+
+            copyNames[0] = "C++ Basics";
+
+            Console.WriteLine("Copied Array:");
+            Console.WriteLine("----------------");
+            foreach (string name in copyNames)
+            {
+                Console.WriteLine(name);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Original Array");
+            Console.WriteLine("----------------");
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
+        }
         static string FindIndex(string[] names)
         {
             Console.Write("Enter session name: ");
@@ -139,7 +160,9 @@
 
             // Console.WriteLine(FindASession(sessionNames));
 
-            Console.WriteLine(FindIndex(sessionNames));
+            // Console.WriteLine(FindIndex(sessionNames));
+
+            CopyAnArray(sessionNames);
         }
     }
 }

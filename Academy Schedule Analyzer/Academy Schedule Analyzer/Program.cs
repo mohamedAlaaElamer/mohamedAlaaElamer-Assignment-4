@@ -2,6 +2,20 @@
 {
     internal class Program
     {
+        static void SearchForIndexAndDuration(string[] sessionNames, int[] sessionDurations , out int index, out int duration)
+        {
+            Console.Write("Enter the session name:");
+            string sessionName = Console.ReadLine();
+            index = Array.FindIndex(sessionNames, name => name.Equals(sessionName, StringComparison.OrdinalIgnoreCase));
+            duration = index != -1 ? sessionDurations[index] : 0;
+
+            Console.WriteLine($"Index: {index}, Duration: {duration}");
+
+        }   
+        static void ChangeRefValue(ref int x)
+        {
+            x = 10;
+        }
         static void SortSessionDurations(int[] sessionDurations)
         {
             int[] CopySessionDurations = new int[sessionDurations.Length];
@@ -219,9 +233,17 @@
             //Console.WriteLine($"Shortest Duration: {GetShortestDuration(sessionDurations)} minutes");
             //Console.WriteLine($"Longest Duration: {GetLongestDuration(sessionDurations)} minutes");
 
-            SortSessionDurations(sessionDurations);
+            //  SortSessionDurations(sessionDurations);
 
+            //Part 7
+            int x = 5;
+            Console.WriteLine($"Before calling the function: {x}");
 
+            ChangeRefValue(ref x);
+
+            Console.WriteLine($"After calling the function: {x}");
+
+            SearchForIndexAndDuration(sessionNames, sessionDurations , out int index , out int duration);
         }
     }
 }

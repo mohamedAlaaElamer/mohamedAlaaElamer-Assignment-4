@@ -2,6 +2,17 @@
 {
     internal class Program
     {
+        static void CalculateTotalDuration(params int[] sessionDurations)
+        {
+            int totalDuration = 0;
+
+            foreach (int duration in sessionDurations)
+            {
+                totalDuration += duration;
+            }
+
+            Console.WriteLine($"Total duration: {totalDuration}");
+        }
         static void ReferenceTypeWithiutRef(int[] sessionDurations)
         {
             sessionDurations[0] = 100;
@@ -249,18 +260,23 @@
 
             //SearchForIndexAndDuration(sessionNames, sessionDurations , out int index , out int duration);
 
-            Console.WriteLine("Array before modification:");
-            foreach (int duration in sessionDurations)
-            {
-                Console.WriteLine(duration);
-            }
-            ReferenceTypeWithiutRef(sessionDurations);
+            // Part 7.3
+            //Console.WriteLine("Array before modification:");
+            //foreach (int duration in sessionDurations)
+            //{
+            //    Console.WriteLine(duration);
+            //}
+            //ReferenceTypeWithiutRef(sessionDurations);
 
-            Console.WriteLine("Array after modification:");
-            foreach (int duration in sessionDurations)
-            {
-                Console.WriteLine(duration);
-            }
+            //Console.WriteLine("Array after modification:");
+            //foreach (int duration in sessionDurations)
+            //{
+            //    Console.WriteLine(duration);
+            //}
+
+            // Part 8 
+            CalculateTotalDuration(60, 90, 120, 180, 240);
+
 
         }
     }

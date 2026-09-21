@@ -2,6 +2,19 @@
 {
     internal class Program
     {
+        static void SortSessionDurations(int[] sessionDurations)
+        {
+            int[] CopySessionDurations = new int[sessionDurations.Length];
+            Array.Copy(sessionDurations, CopySessionDurations, sessionDurations.Length);
+            Array.Sort(CopySessionDurations);
+
+            Console.WriteLine("Sorted Session Durations:");
+            Console.WriteLine("-------------------------");
+            foreach (var session in CopySessionDurations)
+            {
+                Console.WriteLine(session);
+            }
+        }
         static int GetLongestDuration(int[] sessionDurations)
         {
             int longestDuration = sessionDurations[0];
@@ -205,6 +218,8 @@
             //Console.WriteLine($"Average Duration: {GetAverageDuration(sessionDurations , GetTotalDuration(sessionDurations))} minutes");
             //Console.WriteLine($"Shortest Duration: {GetShortestDuration(sessionDurations)} minutes");
             //Console.WriteLine($"Longest Duration: {GetLongestDuration(sessionDurations)} minutes");
+
+            SortSessionDurations(sessionDurations);
 
 
         }

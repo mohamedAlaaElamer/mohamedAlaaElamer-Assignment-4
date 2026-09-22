@@ -4,6 +4,29 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void DateDifference(string[] names , DateTime[] dates)
+        {
+            Console.Write("Enter the first session name:");
+            string firstSessionName = Console.ReadLine();
+            int index = Array.FindIndex(names, name => name.Equals(firstSessionName, StringComparison.OrdinalIgnoreCase));
+
+            Console.Write("Enter the Second session name:");
+            string secondSessionName = Console.ReadLine();
+            int index2 = Array.FindIndex(names, name => name.Equals(secondSessionName, StringComparison.OrdinalIgnoreCase));
+
+            if (index != -1 && index2 != -1)
+            {
+                Console.WriteLine("--------------------");
+                TimeSpan difference = dates[index2] - dates[index];
+                Console.WriteLine("Difference:");
+                Console.WriteLine($"{difference.Days} days");
+                Console.WriteLine($"{difference.TotalHours} Hours");
+            }
+            else
+            {
+                Console.WriteLine("One or both session names not found.");
+            }
+        }
         static void SessionDateDetails(string[] names, DateTime[] dates, int[] durations)
         {
             Console.Write("Enter the session name:");
@@ -296,8 +319,10 @@ namespace Academy_Schedule_Analyzer
             // CalculateTotalDuration(60, 90, 120, 180, 240);
 
             //Part 9
+            //SessionDateDetails(sessionNames, sessionDates, sessionDurations);
 
-            SessionDateDetails(sessionNames, sessionDates, sessionDurations);
+            //Part 10
+            DateDifference(sessionNames, sessionDates);
         }
     }
 }

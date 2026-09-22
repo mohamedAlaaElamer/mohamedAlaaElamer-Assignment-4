@@ -1,7 +1,25 @@
-﻿namespace Academy_Schedule_Analyzer
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void SessionDateDetails(string[] names, DateTime[] dates, int[] durations)
+        {
+            Console.Write("Enter the session name:");
+            string sessionName = Console.ReadLine();
+            Console.WriteLine( "----------------------------");
+            int index = Array.FindIndex(names, name => name.Equals(sessionName, StringComparison.OrdinalIgnoreCase));
+
+            Console.WriteLine($"Session Date: {dates[index].ToString("dd MMMM yyyy")}");
+            Console.WriteLine($"Day :{dates[index].DayOfWeek}");
+            Console.WriteLine($"Year :{dates[index].Year}");
+            Console.WriteLine($"Month :{dates[index].Month}");
+            Console.WriteLine($"Day :{dates[index].Day}");
+            Console.WriteLine($"Start Time :{dates[index].ToString("hh:mm tt")}");
+            Console.WriteLine($"Duration :{durations[index]} minutes");
+            Console.WriteLine($"End Time : {dates[index].AddMinutes(durations[index]).ToString("hh:mm tt")}");
+        }
         static void CalculateTotalDuration(params int[] sessionDurations)
         {
             int totalDuration = 0;
@@ -275,9 +293,11 @@
             //}
 
             // Part 8 
-            CalculateTotalDuration(60, 90, 120, 180, 240);
+            // CalculateTotalDuration(60, 90, 120, 180, 240);
 
+            //Part 9
 
+            SessionDateDetails(sessionNames, sessionDates, sessionDurations);
         }
     }
 }

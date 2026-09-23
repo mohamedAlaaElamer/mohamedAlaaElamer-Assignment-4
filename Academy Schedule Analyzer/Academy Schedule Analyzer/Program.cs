@@ -4,6 +4,22 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void PastandUpcomingSessions(DateTime[] dates , string[] names)
+        {
+            DateTime currentDate = DateTime.Now;
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (dates[i] >= currentDate)
+                {
+                    Console.WriteLine($"{names[i]} - Upcoming Session");
+                }
+                else
+                {
+                    Console.WriteLine($"{names[i]} - Past Session");
+                }
+            }
+        }
         static void DateDifference(string[] names , DateTime[] dates)
         {
             Console.Write("Enter the first session name:");
@@ -322,7 +338,11 @@ namespace Academy_Schedule_Analyzer
             //SessionDateDetails(sessionNames, sessionDates, sessionDurations);
 
             //Part 10
-            DateDifference(sessionNames, sessionDates);
+            // DateDifference(sessionNames, sessionDates);
+
+            //Part 11
+            PastandUpcomingSessions(sessionDates, sessionNames);
+
         }
     }
 }

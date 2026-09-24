@@ -4,6 +4,18 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static string ReadandValidateADate(DateTime[] sessionDates)
+        {
+            Console.Write("Enter a date (yyyy-MM-dd HH:mm):");
+            string input = Console.ReadLine();
+
+            while(!DateTime.TryParseExact(input, "yyyy-MM-dd HH:mm", null, System.Globalization.DateTimeStyles.None, out DateTime date))
+            {
+                Console.Write("Invalid date format. Please enter a date (yyyy-MM-dd HH:mm):");
+                input = Console.ReadLine();
+            }
+            return input;
+        }
         static void DateFormatting(DateTime[] datetimes , string[] names)
         {
             Console.Write("Enter the session name:");
@@ -19,7 +31,6 @@ namespace Academy_Schedule_Analyzer
                 Console.WriteLine($"{datetimes[index].ToString("HH:mm tt")}");
             }
         }
-
         static void FindtheNextSession(DateTime[] dates, string[] names)
         {
             DateTime currentDate = DateTime.Now;
@@ -374,22 +385,23 @@ namespace Academy_Schedule_Analyzer
             // Part 8 
             // CalculateTotalDuration(60, 90, 120, 180, 240);
 
-            //Part 9
-            //SessionDateDetails(sessionNames, sessionDates, sessionDurations);
+            // Part 9
+            // SessionDateDetails(sessionNames, sessionDates, sessionDurations);
 
-            //Part 10
+            // Part 10
             // DateDifference(sessionNames, sessionDates);
 
-            //Part 11
-            //PastandUpcomingSessions(sessionDates, sessionNames);
+            // Part 11
+            // PastandUpcomingSessions(sessionDates, sessionNames);
 
-            //Part 12
+            // Part 12
             // FindtheNextSession(sessionDates, sessionNames);
 
-            //Part 13
-            DateFormatting(sessionDates, sessionNames);
+            // Part 13
+            // DateFormatting(sessionDates, sessionNames);
 
-
+            // Part 14
+            ReadandValidateADate(sessionDates);
         }
     }
 }

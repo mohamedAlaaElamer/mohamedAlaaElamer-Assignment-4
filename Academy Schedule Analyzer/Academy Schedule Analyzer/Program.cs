@@ -4,6 +4,30 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void FindtheNextSession(DateTime[] dates, string[] names)
+        {
+            DateTime currentDate = DateTime.Now;
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (dates[i] >= currentDate)
+                {
+                    Console.WriteLine($"{names[i]} - Next session");
+                    Console.WriteLine($"{dates[i].ToString("dd MMMM yyyy")}");
+                    Console.WriteLine($"{dates[i].ToString("HH:mm tt")}");
+
+                    Console.WriteLine();
+                    TimeSpan difference = currentDate - dates[i];
+                    Console.WriteLine($"{difference.Days} days");
+                    Console.WriteLine($"{difference.TotalHours} Hours");
+                }
+
+                else
+                {
+                    Console.WriteLine($"{names[i]} - Past Session");
+                }
+            }
+        }
         static void PastandUpcomingSessions(DateTime[] dates , string[] names)
         {
             DateTime currentDate = DateTime.Now;
@@ -341,7 +365,11 @@ namespace Academy_Schedule_Analyzer
             // DateDifference(sessionNames, sessionDates);
 
             //Part 11
-            PastandUpcomingSessions(sessionDates, sessionNames);
+            //PastandUpcomingSessions(sessionDates, sessionNames);
+
+            //Part 12
+            FindtheNextSession(sessionDates, sessionNames);
+
 
         }
     }

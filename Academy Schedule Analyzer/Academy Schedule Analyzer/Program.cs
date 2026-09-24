@@ -4,6 +4,29 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void MenuInput()
+        {
+            try
+            {
+                Console.Write("Choose an option: ");
+                int option = int.Parse(Console.ReadLine());
+
+                while(option == null)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid option.");
+                    Console.Write("Choose an option: ");
+                    option = int.Parse(Console.ReadLine());
+                }
+            }
+            catch (FormatException)
+            {
+
+                throw new FormatException("Invalid menu option. Enter a number.\r\n");
+            }
+            
+
+
+        }
         static string ReadandValidateADate(DateTime[] sessionDates)
         {
             Console.Write("Enter a date (yyyy-MM-dd HH:mm):");
@@ -401,7 +424,10 @@ namespace Academy_Schedule_Analyzer
             // DateFormatting(sessionDates, sessionNames);
 
             // Part 14
-            ReadandValidateADate(sessionDates);
+            //ReadandValidateADate(sessionDates);
+
+            // Part 15
+            MenuInput();
         }
     }
 }

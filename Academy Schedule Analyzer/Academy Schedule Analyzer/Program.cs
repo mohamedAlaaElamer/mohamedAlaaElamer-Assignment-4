@@ -4,6 +4,22 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void DateFormatting(DateTime[] datetimes , string[] names)
+        {
+            Console.Write("Enter the session name:");
+            string firstSessionName = Console.ReadLine();
+            int index = Array.FindIndex(names, name => name.Equals(firstSessionName, StringComparison.OrdinalIgnoreCase));
+
+            if (index != -1)
+            {
+                Console.WriteLine($"{datetimes[index].ToString("dd-MM-yyyy")}");
+                Console.WriteLine($"{datetimes[index].ToString("dd/MM/yyyy")}");
+                Console.WriteLine($"{datetimes[index].ToString("dd MMMM yyyy")}");
+                Console.WriteLine($"{datetimes[index].ToString("dddd")}, {datetimes[index].ToString("dd MMMM yyyy")}");
+                Console.WriteLine($"{datetimes[index].ToString("HH:mm tt")}");
+            }
+        }
+
         static void FindtheNextSession(DateTime[] dates, string[] names)
         {
             DateTime currentDate = DateTime.Now;
@@ -368,7 +384,10 @@ namespace Academy_Schedule_Analyzer
             //PastandUpcomingSessions(sessionDates, sessionNames);
 
             //Part 12
-            FindtheNextSession(sessionDates, sessionNames);
+            // FindtheNextSession(sessionDates, sessionNames);
+
+            //Part 13
+            DateFormatting(sessionDates, sessionNames);
 
 
         }

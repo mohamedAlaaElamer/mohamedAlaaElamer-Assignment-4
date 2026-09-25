@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 namespace Academy_Schedule_Analyzer
 {
@@ -20,7 +22,6 @@ namespace Academy_Schedule_Analyzer
                 reportBuilder.Clear();
             }
         }
-
         static void BuildAScheduleReportUsingString(string[] names, DateTime[] dates, int[] durations)
         {
             string result = "";
@@ -513,6 +514,12 @@ namespace Academy_Schedule_Analyzer
 
             //Part 20
             //BuildtheSameReportUsingStringBuilder(sessionNames, sessionDates, sessionDurations);
+
+            //Part 24
+            BenchmarkRunner.Run<MyBenchmark>();
+
+            
+
         }
     }
 }

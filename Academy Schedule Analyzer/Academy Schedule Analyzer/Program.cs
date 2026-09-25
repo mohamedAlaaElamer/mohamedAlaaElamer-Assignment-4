@@ -1,9 +1,24 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Academy_Schedule_Analyzer
+﻿namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void BuildAScheduleReportUsingString(string[] names, DateTime[] dates, int[] durations)
+        {
+            string result = "";
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                result += names[i];
+                result += " - ";
+                result += dates[i].ToString("dd/MM//yyyy");
+                result += " - ";
+                result += durations[i].ToString();
+                result+= " minutes";
+                Console.WriteLine(result);
+                result = "";
+            }
+        }
+
         static void ValidatesASessionDuration(int[] sessionDurations)
         {
             Console.Write("Enter session duration: ");
@@ -36,7 +51,10 @@ namespace Academy_Schedule_Analyzer
                 Console.WriteLine("The selected session index is out of range.\r\n");
                 Console.WriteLine(ex.Message);
             }
-
+            finally
+            {
+                Console.WriteLine("Input operation finished.\r\n");
+            }   
 
 
 
@@ -470,7 +488,10 @@ namespace Academy_Schedule_Analyzer
             //ExceptionHandlingInvalidArrayIndex(sessionNames);
 
             // Part 17
-            ValidatesASessionDuration(sessionDurations);
+            //ValidatesASessionDuration(sessionDurations);
+
+            //Part 19
+            BuildAScheduleReportUsingString(sessionNames, sessionDates, sessionDurations);
         }
     }
 }

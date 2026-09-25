@@ -4,6 +4,25 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void ExceptionHandlingInvalidArrayIndex(string[] sessionNames)
+        {
+            Console.Write("Enter seesion index: ");
+            int.TryParse(Console.ReadLine(), out int index);
+
+            try
+            {
+                Console.WriteLine($"Session name at index {index} is: {sessionNames[index]}");
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("The selected session index is out of range.\r\n");
+                Console.WriteLine(ex.Message);
+            }
+
+
+
+
+        }
         static void MenuInput()
         {
             try
@@ -427,7 +446,10 @@ namespace Academy_Schedule_Analyzer
             //ReadandValidateADate(sessionDates);
 
             // Part 15
-            MenuInput();
+            //MenuInput();
+
+            // Part 16
+            ExceptionHandlingInvalidArrayIndex(sessionNames);
         }
     }
 }

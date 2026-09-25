@@ -4,6 +4,24 @@ namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void ValidatesASessionDuration(int[] sessionDurations)
+        {
+            Console.Write("Enter session duration: ");
+            int.TryParse(Console.ReadLine(), out int sessionDuration);
+            
+                for (int i = 0; i < sessionDurations.Length; i++)
+                {
+                    if (sessionDurations[i] == sessionDuration)
+                    {
+                        Console.WriteLine($"Session duration {sessionDuration} is valid.");
+                        return;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Duration must be greater than zero");
+                    }
+                }
+        }
         static void ExceptionHandlingInvalidArrayIndex(string[] sessionNames)
         {
             Console.Write("Enter seesion index: ");
@@ -449,7 +467,10 @@ namespace Academy_Schedule_Analyzer
             //MenuInput();
 
             // Part 16
-            ExceptionHandlingInvalidArrayIndex(sessionNames);
+            //ExceptionHandlingInvalidArrayIndex(sessionNames);
+
+            // Part 17
+            ValidatesASessionDuration(sessionDurations);
         }
     }
 }

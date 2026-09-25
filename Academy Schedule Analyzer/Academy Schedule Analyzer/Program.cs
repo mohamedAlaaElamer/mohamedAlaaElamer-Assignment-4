@@ -1,7 +1,26 @@
-﻿namespace Academy_Schedule_Analyzer
+﻿using System.Text;
+
+namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
+        static void BuildtheSameReportUsingStringBuilder(string[] names, DateTime[] dates, int[] durations)
+        {
+            StringBuilder reportBuilder = new StringBuilder();
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                reportBuilder.Append(names[i]);
+                reportBuilder.Append(" - ");
+                reportBuilder.Append(dates[i].ToString("dd/MM//yyyy"));
+                reportBuilder.Append(" - ");
+                reportBuilder.Append(durations[i].ToString());
+                reportBuilder.Append(" minutes");
+                Console.WriteLine(reportBuilder.ToString());
+                reportBuilder.Clear();
+            }
+        }
+
         static void BuildAScheduleReportUsingString(string[] names, DateTime[] dates, int[] durations)
         {
             string result = "";
@@ -18,7 +37,6 @@
                 result = "";
             }
         }
-
         static void ValidatesASessionDuration(int[] sessionDurations)
         {
             Console.Write("Enter session duration: ");
@@ -491,7 +509,10 @@
             //ValidatesASessionDuration(sessionDurations);
 
             //Part 19
-            BuildAScheduleReportUsingString(sessionNames, sessionDates, sessionDurations);
+            //BuildAScheduleReportUsingString(sessionNames, sessionDates, sessionDurations);
+
+            //Part 20
+            //BuildtheSameReportUsingStringBuilder(sessionNames, sessionDates, sessionDurations);
         }
     }
 }

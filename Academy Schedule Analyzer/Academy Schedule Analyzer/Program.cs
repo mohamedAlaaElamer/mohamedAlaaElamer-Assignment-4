@@ -1,6 +1,6 @@
-﻿using System.Text;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using System.Text;
 
 namespace Academy_Schedule_Analyzer
 {
@@ -516,9 +516,7 @@ namespace Academy_Schedule_Analyzer
             //BuildtheSameReportUsingStringBuilder(sessionNames, sessionDates, sessionDurations);
 
             //Part 24
-            BenchmarkRunner.Run<MyBenchmark>();
-
-            
+            //BenchmarkRunner.Run<MyBenchmark>();
 
         }
     }
